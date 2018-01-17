@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:rich="http://mojarra.dev.java.net/mojarra_ext">
+<h:head>
+	<title>Not present in rendered output</title>
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout2.xhtml">
+	
+		
+		<ui:define name="content"> 
+					<h2>Page body</h2>
+		
+  					<h:form id="logfrom">
+  							<h:commandButton id="action" type="button" action="#{logCleaner.getListMail()}" value="Akcja">
+							<!-- f:ajax execute="@form" render="@form"></f:ajax -->
+						</h:commandButton>
+					</h:form>	
+		</ui:define>
+	
+	</ui:composition>
+</h:body>
+</html>

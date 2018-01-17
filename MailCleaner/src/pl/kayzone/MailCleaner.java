@@ -19,17 +19,24 @@ public class MailCleaner  implements Serializable  {
 	
 	private MailReader mr = null;
 	
-	public MailCleaner() {
+	public MailCleaner() throws MessagingException {
 		super();
-		//this.mr = new MailReader("kntnews1.kontri.pl" , "news@news.kontri.pl", "*yNPAoahT\\BA21", "imap", false);
-		//this.mr = new MailReader("imap.mint.net.pl", "maciej.skrobiszewski@mint.net.pl" ,"pioRMZ25x", "imap", true );
-		
+		MailReader mr = new MailReader();
+			
 		System.out.println("inside construktor logcelaner" + " " + mr.getPropert("mail.port"));
-		try {
-			//mr.getConnection();
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		}
+	}
+	
+	public String getMailList() {
+		
+		return "index.xhtml";
+	}
+
+	public MailReader getMr() {
+		return mr;
+	}
+
+	public void setMr(MailReader mr) {
+		this.mr = mr;
 	}
 
 }
