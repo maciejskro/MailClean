@@ -31,7 +31,7 @@ public class MailCleaner  implements Serializable  {
 	
 	public String getMailList() {
 		this.mr.getMailList(100);
-		return "index.xhtml";
+		return "test 123";
 	}
 
 	public MailReader getMr() {

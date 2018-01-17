@@ -23,8 +23,10 @@ import javax.ws.rs.core.MediaType;
  ***********************************/
 
 @Path("/api")
+
 public class MailReader {
 
+	
 	
 	private Properties prop;
 	private Folder emailFolder;
