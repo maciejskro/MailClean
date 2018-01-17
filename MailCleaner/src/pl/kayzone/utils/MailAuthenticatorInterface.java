@@ -2,7 +2,7 @@ package pl.kayzone.utils;
 
 import javax.mail.PasswordAuthentication;
 
-interface MailAuthenticatorInterface {
+public interface MailAuthenticatorInterface {
 
 	PasswordAuthentication getPassAuth();
 

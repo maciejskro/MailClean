@@ -2,12 +2,12 @@ package pl.kayzone.utils;
 
 import java.io.Serializable;
 
-import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
-
-@EJB(name="java:global/MailAuthenticator", beanInterface=MailAuthenticatorInterface.class)
+@Stateless
+//@EJB(name="java:global/MailAuthenticator", beanInterface=MailAuthenticatorInterface.class)
 public class MailAuthenticator extends Authenticator implements Serializable, MailAuthenticatorInterface {
 	
 

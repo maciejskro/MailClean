@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
+
+<!-- f:loadBundle basename="resources" var="msg" /  -->
+<h:head>
+	<title><ui:insert name="pageTitle">Page Title</ui:insert></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 " />
+	<style type="text/css">
+	body {
+				  font-family: Verdana, Arial, Helvetica, sans-serif;
+				  font-size: 14px;
+			}
+	.header {
+				  font-family: Verdana, Arial, Helvetica, sans-serif;
+				  font-size: 18px;
+			}
+	.bottom {
+				  font-family: Verdana, Arial, Helvetica, sans-serif;
+				  font-size: 9px;
+				  text-align: center;
+				  vertical-align: middle;
+				  color: #8E969D;
+				 }
+	
+#main {
+	width: 70%;
+	margin: 15 auto;
+	overflow: hidden;
+}
+
+#content {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	width: 900px;
+	margin: 0 auto;
+}
+
+#header {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	width: 900px;
+}
+#leftColumn {
+	font-famyly: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 14px;
+		width: 120px:
+		}
+
+#pageHeader {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	height: 200px;
+	background: #aaaaaa;
+	width: 900px;
+}
+
+#bottom {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-align: center;
+	vertical-align: middle;
+	color: #8E969D;
+}
+
+#table {
+	border: 1;
+	line: solid;
+	line-color: #CAD6E0;
+	bgcolor: #E4EBEB;
+	cellpadding: 0;
+	collspacing: 0;
+	width: 400;
+}
+
+#footer {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-align: center;
+	vertical-align: middle;
+	color: #8E969D;
+}
+</style>
+
+</h:head>
+
+<h:body bgcolor="#ffffff">
+	<div id="main" class="main">
+		<div id="leftColumn" class="leftColumn">
+			<ui:insert name="leftColumn"></ui:insert>
+		</div>
+	
+		<div id="header" class="header">
+			<ui:insert name="header">
+				<ui:include src="/header.xhtml" />
+			</ui:insert>
+		</div>
+		
+		<div id="content" class="body">
+			<ui:insert name="content">
+				<ui:include src="/body.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="footer" class="bottom">
+			<ui:insert name="footer">
+				<ui:include src="/footer.xhtml" />
+			</ui:insert>
+		</div>
+	</div>
+</h:body>
+
+</html>

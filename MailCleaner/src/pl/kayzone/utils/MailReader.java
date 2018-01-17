@@ -5,17 +5,30 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import javax.mail.Folder;
+import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
+/************************************
+ * 
+ * Read mail from given mailbox
+ * @author smaciej
+ *
+ ***********************************/
+
+@Path("/api")
 public class MailReader {
 
 	
 	private Properties prop;
 	private Folder emailFolder;
 	public MailReader() {
-		
 		Properties p = new Properties();
 		this.prop = p;
 	}
@@ -25,6 +38,7 @@ public class MailReader {
 		InputStream in = cl.getResourceAsStream(path);
 		System.out.println(in);
 		this.prop.load(in);
+		getConnectedFolder();
 	}
 	
 	public String getPropert( String key ) {
@@ -75,4 +89,55 @@ public class MailReader {
 		this.emailFolder = emailFolder;
 	}
 
+	
+	public void getMailList(int howmanymails ) {
+		
+		try {
+			
+			// Fetch messages from the folder and print in a loop
+			Message[] messageobjs = this.getEmailFolder().getMessages();
+			System.out.println ("ile message " + messageobjs.length);
+			for (int i = 0, n = howmanymails; i < n; i++) {
+				@SuppressWarnings("unused")
+				Message indvidualmsg = messageobjs[i];
+				
+				//System.out.println("Printing individual messages from " + indvidualmsg.getReceivedDate().toString());
+				//System.out.println("No# " + (i + 1));
+				//System.out.println("Email Subject: " + indvidualmsg.getSubject());
+				//System.out.println("Sender: " + indvidualmsg.getFrom()[i]);
+				//System.out.println("Content: " + indvidualmsg.getContent().toString());
+				//Flags deleted = new Flags("DELETED");
+				
+				//MailEntity me = new MailManager (indvidualmsg) ;
+				
+				//if (me != null ) {
+					//this.mds = new MailStorager<MailEntityHeader>();
+				//	this.mds.storeDocumnet();
+				//}
+				
+				//if ( Arrays.asList(me.getMailjson().get("Recipients")).size() >0 ) {
+				//	System.out.println(me.getMailjson().toString());
+				//}
+				
+				
+
+			}
+			
+			// Now close all the objects
+			this.getEmailFolder().close(false);
+			getConnectedFolder().getStore().close();
+			
+		} catch (NoSuchProviderException exp) {
+			exp.printStackTrace();
+		} catch (MessagingException exp) {
+			exp.printStackTrace();
+		} catch (Exception exp) {
+			exp.printStackTrace();
+		}
+	}
+	 @GET
+	 @Produces(MediaType.TEXT_PLAIN)
+	 public String sayPlainTestHello() {
+		 return "hello test";
+	 }
 }
